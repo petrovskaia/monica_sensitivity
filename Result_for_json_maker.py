@@ -1,4 +1,11 @@
-import json
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
+import numpy as np
+import pandas as pdimport json
 import pickle
 import csv
 from pandas.io.json import json_normalize
@@ -34,10 +41,10 @@ our_keys = list(keys.copy()[i] for i in [1,2,6,9,10])
 
 #creating range for every soil parameter
 organic_carbon_range=np.arange(2.58,6.00,0.8)
-texture_class_range=list(soil_texture_pd['KA5-class'])
-pore_volume_range=range(0.50,0.67,0.04)
+texture_class_range=list(soxil_texture_pd['KA5-class'])
+pore_volume_range=np.arange(0.50,0.67,0.04)
 ph_range=np.arange(4.7,6.8,0.5)
-cn_range=range(10.9,12.4,0.3)
+cn_range=np.arange(10.9,12.4,0.3)
 
 
 soil_parameters_range = [organic_carbon_range,texture_class_range,pore_volume_range,
