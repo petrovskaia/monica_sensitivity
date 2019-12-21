@@ -1,4 +1,9 @@
 #this script helps us to divide all of our sim files in txt files with its names 
+cd ~/monica/sensitivity/sim/
+./writting_100k.py
+mkdir input_files
+mv site_SOC* ./input_files/
+mv sim_SOC* ./input_files/
 cd ~/monica/sensitivity/sim/input_files
 find . -name "sim_SOC*json" > ~/monica/sensitivity/sim/all_sim.txt
 cd ~/monica/sensitivity/sim

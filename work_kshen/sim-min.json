@@ -14,8 +14,8 @@
 	"output": { 
 	  "write-file?": true,
 
-		"path-to-output": "./total_result/",
-		"file-name": "sim-min-out_2011.csv",
+		"path-to-output": "./",
+		"file-name": "sim-min-out_18_12.csv",
 	
 		"csv-options": {
 			"include-header-row": true,
