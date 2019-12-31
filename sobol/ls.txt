@@ -1,0 +1,15 @@
+total 10096
+drwxr-xr-x  14 mikhailgasanov  staff      448 31 дек 00:36 .
+drwxr-xr-x  25 mikhailgasanov  staff      800 27 дек 16:01 ..
+drwxr-xr-x   3 mikhailgasanov  staff       96 24 дек 00:47 .ipynb_checkpoints
+-rw-r--r--   1 mikhailgasanov  staff       81 30 дек 20:25 Parameters.txt
+drwxr-xr-x  32 mikhailgasanov  staff     1024 30 дек 20:33 SALib
+-rw-r--r--   1 mikhailgasanov  staff    20465 27 дек 18:11 Salib_basic.ipynb
+-rw-r--r--   1 mikhailgasanov  staff       82 24 дек 21:02 Soil_Parameters.txt
+-rw-r--r--   1 mikhailgasanov  staff  3947855 24 дек 14:38 all_out_sobol_N1000.csv
+-rw-r--r--   1 mikhailgasanov  staff   162011 27 дек 22:57 file.tar.gz
+-rw-r--r--   1 mikhailgasanov  staff        0 31 дек 00:36 ls.txt
+drwxr-xr-x   7 mikhailgasanov  staff      224 24 дек 20:50 sensitivity
+drwxr-xr-x   2 mikhailgasanov  staff       64 27 дек 22:47 tars
+drwxr-xr-x   5 mikhailgasanov  staff      160 27 дек 22:49 work_kshen
+-rwx------   1 mikhailgasanov  staff     4633 27 дек 22:51 writting_sobol_samples.py

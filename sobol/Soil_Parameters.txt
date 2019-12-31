@@ -1,0 +1,5 @@
+# name lower_bound upper_bound
+SOC 2.58 6.20
+pH 4.6 6.9
+PV 0.48 0.67
+CN 10.9 12.4

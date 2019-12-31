@@ -11,7 +11,7 @@ mv *sim_* ./input_files/
 cd ~/monica/sensitivity/sim/input_files
 find . -name "sim_*json" > ~/monica/sensitivity/sim/all_sim.txt
 cd ~/monica/sensitivity/sim
-split -l 100 all_sim.txt batch --additional-suffix=.txt
+split -l 1000 all_sim.txt batch --additional-suffix=.txt
 rm -r ~/monica/sensitivity/sim/batch_and_slurm_files
 mkdir batch_and_slurm_files
 mv batch*txt ./batch_and_slurm_files

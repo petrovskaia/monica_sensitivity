@@ -14,7 +14,7 @@ import scipy
 import SALib
 from SALib.sample import saltelli
     
-def writting_files(str_values):
+def writting_files(str_values, counter):
 
 #     import itertools
 
@@ -79,11 +79,11 @@ def writting_files(str_values):
     site_data_copy=site_data.copy()
 
     #writing main parameters
-    site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[0]][0]=float('{:.3f}'.format(soc)) 
+    site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[0]][0]=float(soc) 
 #     site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[1]]=ka5
-    site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[1]][0]=float('{:.3f}'.format(pv))
-    site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[2]][0]=float('{:.3f}'.format(ph))
-    site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[3]][0]=float('{:.3f}'.format(cn))
+    site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[1]][0]=float(pv)
+    site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[2]][0]=float(ph)
+    site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[3]][0]=float(cn)
 
 
     #writing texture parameters
@@ -92,14 +92,14 @@ def writting_files(str_values):
 #         site_data_copy['SiteParameters']['SoilProfileParameters'][0][texture_keys[c]][0]=data[c]
 
     #constructing file name 
-    SOC_value = 'SOC' + str(site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[0]][0])
+    SOC_value = str(site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[0]][0])
 #     KA5_value = '_KA5' + str(site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[1]])
-    PV_value = '_PV' + str(site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[1]][0])
-    ph_value = '_pH' + str(site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[2]][0])
-    CN_value = '_CN' + str(site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[3]][0])
+    PV_value = str(site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[1]][0])
+    ph_value =  str(site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[2]][0])
+    CN_value =  str(site_data_copy['SiteParameters']['SoilProfileParameters'][0][our_keys[3]][0])
 
 
-    file_name = str(SOC_value)+    str(PV_value)+ str(ph_value)+str(CN_value)
+    file_name = str(SOC_value)+'_'+str(PV_value)+'_'+str(ph_value)+'_'+str(CN_value)
     site_file_name='site'+'_'+file_name+'.json'
 
 
@@ -108,7 +108,7 @@ def writting_files(str_values):
 
     sim_data_copy=sim_data.copy()
     sim_data_copy['site.json']=site_file_name
-    sim_data_copy['output']['file-name']='out'+'_'+file_name+'.csv'
+    sim_data_copy['output']['file-name']=str(counter)+'out'+'_'+file_name+'.csv'
     sim_file_name='sim'+'_'+file_name+'.json'
 
     with open(sim_file_name, 'w', encoding='utf-8') as simf:
@@ -124,8 +124,8 @@ problem = {
     'num_vars':4,
     'names':['SOC', 'PV', 'pH', 'CN'],
     'bounds':[[2.58, 6.20],
-              [4.6, 6.9],
               [0.48, 0.67],
+              [4.6, 6.9],
               [10.9, 12.4]]
 }
 
@@ -133,15 +133,14 @@ problem = {
 # In[57]:
 
 
-param_values = saltelli.sample(problem, 10)
+param_values = saltelli.sample(problem, 1000)
 
 
 # In[56]:
-
-
-for st in range(len(values)):
-    writting_files(values[st])
-
+counter=1000000
+for st in range(len(param_values)):
+    writting_files(param_values[st], counter)
+    counter+=1
 
 # In[ ]:
 

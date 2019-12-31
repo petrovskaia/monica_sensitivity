@@ -1,0 +1,10 @@
+problem = {
+    'num_vars':4,
+    'names':['SOC', 'pH', 'CN', 'BD'],
+    'bounds':[[2.58, 6.20],
+              [4.6, 6.9],
+              [10.9, 12.4],
+              [900, 1350]]
+}
+
+param_values = saltelli.sample(problem, 100, calc_second_order=True)
